@@ -8,4 +8,6 @@ public interface UserInterface {
  public List<String> userList();
  public void insert();
  public void batchinsert(List<User> list);
+ 
+ 
 }
