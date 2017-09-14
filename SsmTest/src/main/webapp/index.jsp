@@ -24,5 +24,7 @@
    %>
    <a href="<%=request.getContextPath()%>/userList/insert">点击插入数据</a>
    <a href="<%=request.getContextPath()%>/userList/batchinsert">批量插入</a>
+   <a href="<%=request.getContextPath()%>/userList/update">修改</a>
+   <a href="<%=request.getContextPath()%>/userList/delete">删除</a>
 </body>
 </html>
