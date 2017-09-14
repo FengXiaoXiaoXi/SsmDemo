@@ -34,4 +34,9 @@
 	<update id="deleteById" parameterType="string">
 	   delete from  user_data where id=#{item}
 	</update>
+	<insert id="add" parameterType="com.wangyin.entity.User">
+	    insert into user_data(id,userName,passwd,age) values
+	    (#{id},#{userName},#{passwd},#{age})
+	    
+	</insert>
 </mapper>

@@ -36,6 +36,7 @@ table td{
    <a href="<%=request.getContextPath()%>/userList/batchinsert">批量插入</a>
    <a href="<%=request.getContextPath()%>/userList/update">修改</a>
    <a href="<%=request.getContextPath()%>/userList/delete">删除</a>
+   <a href="<%=request.getContextPath()%>/register.jsp">新增</a>
    <table style="boder:1px;" cellspacing="0" cellpadding="0">
       <tr>
         <td>编号</td>

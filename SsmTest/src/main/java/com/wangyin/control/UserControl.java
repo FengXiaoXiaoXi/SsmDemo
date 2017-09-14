@@ -9,9 +9,11 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.wangyin.Exception.MyException;
 import com.wangyin.entity.User;
 import com.wangyin.impl.UserServiceList;
 
@@ -104,5 +106,13 @@ public class UserControl {
 		model.addObject("list",userList);
 		return model;
 	}
-	
+	@ExceptionHandler()
+	@RequestMapping(value = "/register")
+	public ModelAndView add(User user) {
+		ModelAndView model=new ModelAndView("/index");
+		services.addUser(user);
+		List<User> userList = services.userList();
+		model.addObject("list",userList);
+		return model;
+	}
 }

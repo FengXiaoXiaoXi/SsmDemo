@@ -47,9 +47,25 @@
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="40960" />  
     </bean> 
-    
-    
-    
-    
-    
+    <mvc:interceptors>
+        <bean class="com.wangyin.interceptor.MyInterCeptor"></bean>
+    </mvc:interceptors>
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+          <property name="defaultErrorView" value="index"></property>  
+    <!-- 定义异常处理页面用来获取异常信息的变量名，默认名为exception -->  
+    <property name="exceptionAttribute" value="ex"></property>  
+    <!-- 定义需要特殊处理的异常，用类名或完全路径名作为key，异常也页名作为值 -->  
+    <property name="exceptionMappings">  
+        <props>  
+            <prop key="java.lang.NullPointerException">errors/error</prop>  
+        </props>  
+    </property>  
+     <property name="statusCodes">     
+             <props>     
+                 <prop key="errors/error">500</prop>     
+                 <prop key="errors/404">404</prop>     
+             </props>     
+    </property>        
+    </bean>
+    <bean id="exceptionHandler" class="com.wangyin.interceptor.MyInterCeptor"></bean>
 </beans>

@@ -53,5 +53,8 @@ public class UserServiceList implements UserInterface {
 		this.dao.deleteById(id);
 		
 	}
-
+  public void addUser(User user){
+	  dao.add(user);
+	  
+  }
 }

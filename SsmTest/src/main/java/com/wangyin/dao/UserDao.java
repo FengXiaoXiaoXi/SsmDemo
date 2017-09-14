@@ -13,4 +13,5 @@ public interface UserDao {
   public void update(Map<String,String> map);
   public void updateById(String id);
   public void deleteById(String id);
+  public void add(User user);
 }

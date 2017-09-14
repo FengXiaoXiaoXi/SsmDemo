@@ -1,10 +1,10 @@
 package com.wangyin.entity;
 
 public class User {
-private int id;
+private int id=0;
 private String userName;
 private String passwd;
-private int age;
+private int age=0;
 public int getId() {
 	return id;
 }
