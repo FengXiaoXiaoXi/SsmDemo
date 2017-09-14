@@ -26,10 +26,5 @@
    <a href="<%=request.getContextPath()%>/userList/batchinsert">批量插入</a>
    <a href="<%=request.getContextPath()%>/userList/update">修改</a>
    <a href="<%=request.getContextPath()%>/userList/delete">删除</a>
-    
-    
-    
-    
-    我在测试git与服务器的交互
 </body>
 </html>
