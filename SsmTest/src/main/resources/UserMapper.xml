@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wangyin.dao.UserDao">
-	<select id="getUserList" resultType="java.lang.String">
-		SELECT ID FROM USER_DATA
+	<select id="getUserList" resultMap="userMap">
+		SELECT id,username,passwd,age FROM USER_DATA
 	</select>
+	<resultMap type="com.wangyin.entity.User" id="userMap">
+	    <result  column="id" property="id" javaType="int"/>
+	    <result  column="username" property="userName" javaType="string"/>
+	    <result  column="passwd" property="passwd" javaType="string"/>
+	    <result  column="age" property="age" javaType="int"/>
+	</resultMap>
 	<insert id="insert">
 		insert into USER_data(id,username,passwd,age) values(2,'小明','12345',12);
 	</insert>
@@ -14,4 +20,18 @@
 			(#{item.id},#{item.userName},#{item.passwd},#{item.age})
 		</foreach>
 	</insert>
+	<delete id="deleteAll">
+	    delete from user_data
+	</delete>
+	
+	
+	<update id="update" parameterType="hashMap">
+	    update user_data set username=#{username} where id=#{id}
+	</update>
+<!-- 	<update id="updateById" parameterType="hashMap">
+	    update user_data set username=#{username} where id=#{id}
+	</update> -->
+	<update id="deleteById" parameterType="string">
+	   delete from  user_data where id=#{item}
+	</update>
 </mapper>

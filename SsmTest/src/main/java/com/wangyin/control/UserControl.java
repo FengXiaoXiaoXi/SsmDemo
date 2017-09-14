@@ -1,9 +1,12 @@
 package com.wangyin.control;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,13 +23,15 @@ public class UserControl {
 
 	@RequestMapping(value = "/list")
 	public ModelAndView list() {
+		
 		ModelAndView model=new ModelAndView();
 		model.setViewName("/index");
-       List<String> userList = services.userList();
-       for(String data:userList){
-    	   System.out.println(data);
-       }
+       List<User> userList = services.userList();
        model.addObject("list", userList);
+       for(User user:userList){
+    	   
+    	   System.out.println(user);
+       }
        return model;
 	}
 	@RequestMapping(value = "/insert")
@@ -51,8 +56,53 @@ public class UserControl {
 			list.add(user);
 		}
 		services.batchinsert(list);
-		List<String> userList = services.userList();
+		List<User> userList = services.userList();
 		model.addObject("list",userList);
 		return model;
 	}
+	@RequestMapping(value = "/delete")
+	public ModelAndView deleteAll() {
+		ModelAndView model=new ModelAndView();
+		model.setViewName("/index");
+		services.deleteAll();
+		List<User> userList = services.userList();
+		model.addObject("list",userList);
+		return model;
+	}
+	@RequestMapping(value = "/update")
+	public ModelAndView update() {
+		ModelAndView model=new ModelAndView();
+		Map<String,String> map=new HashMap<String,String>();
+		map.put("username", "北京");
+		map.put("id", "2");
+		model.setViewName("/index");
+		services.update(map);
+		List<User> userList = services.userList();
+		model.addObject("list",userList);
+		return model;
+	}
+	@RequestMapping(value = "/deleteById")
+	public ModelAndView deleteById(HttpServletRequest request) {
+		
+		String id=request.getParameter("id");
+		ModelAndView model=new ModelAndView();
+		model.setViewName("/index");
+		services.deleteById(id);
+		List<User> userList = services.userList();
+		model.addObject("list",userList);
+		return model;
+	}
+	@RequestMapping(value = "/updateById")
+	public ModelAndView updateById() {
+		ModelAndView model=new ModelAndView();
+		Map<String,String> map=new HashMap<String,String>();
+		map.put("username", "北京");
+		map.put("id", "2");
+		
+		services.update(map);
+		List<User> userList = services.userList();
+		model.addObject("list",userList);
+		return model;
+	}
+	
 }

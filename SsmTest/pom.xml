@@ -1,17 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.wangyin</groupId>
-  <artifactId>SsmTest</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+	<groupId>com.wangyin</groupId>
+	<artifactId>SsmTest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-  <name>SsmTest</name>
-  <url>http://maven.apache.org</url>
+	<name>SsmTest</name>
+	<url>http://maven.apache.org</url>
 
-<properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- spring版本号 -->
 		<spring.version>4.0.2.RELEASE</spring.version>
 		<!-- mybatis版本号 -->
@@ -123,8 +123,8 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
-		
-		
+
+
 		<!-- 格式化对象，方便输出日志 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -166,6 +166,11 @@
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 			<version>1.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.10</version>
 		</dependency>
 	</dependencies>
 </project>
